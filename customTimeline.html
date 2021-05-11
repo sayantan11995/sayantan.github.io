@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+  <title>Timeline</title>
+  <script type="text/javascript" src="https://unpkg.com/vis-timeline@latest/standalone/umd/vis-timeline-graph2d.min.js"></script>
+  <link href="https://unpkg.com/vis-timeline@latest/styles/vis-timeline-graph2d.min.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+    #visualization {
+      width: 100%;
+	  height: 800px;
+      border: 1px solid lightgray;
+	  background-color: RGBA(0,0,0,0.1);
+    }
+	.vis-timeline {
+  position: relative;
+  margin:50px auto;
+  
+	}
+	.vis-time-axis .vis-text {
+	font-size: 16px;
+    font-weight: bold;
+	}
+	.vis-labelset .vis-label {
+  width: 100%;
+  background-color: #ffa800;
+
+  box-sizing: border-box;
+	}
+	.vis-item {
+    border-color: orange;
+    background-color: #ffa800;
+	color: #033649; 
+	font-family: 'gill', sans-serif;
+	font-size: 16px;
+    font-weight: bold;
+	
+  }
+  .vis-time-axis {
+    background: #f5f5f5;
+  }
+  </style>
+</head>
+<body>
+<div id="visualization" style="margin-top:75px"></div>
+<script type="text/javascript">
+  // DOM element where the Timeline will be attached
+  var container = document.getElementById('visualization');
+
+  // Create a DataSet (allows two way data-binding)
+  var items = new vis.DataSet([
+    {id: 1, title: 'April 8, 1930: Gandhi starts touring villages by car and increasing his speaking commitments.', start: 'April 8, 1930', content: 'Gandhi starts touring villages' },
+    {id: 2, title: "Women's Conference at Dandi where Gandhi tells women that their time to take full share in the struggle has come.Salt Satyagraha was started at 27 different centres in Bihar.", start: 'April 13, 1930', content: "Women's Conference at Dandi"},
+    {id: 3, title: "April 14, 1930: Jawaharlal Nehru arrested", start: 'April 14, 1930', content: "Jawaharlal Nehru arrested"},
+    {id: 4, title: "April 17, 1930: Gandhi's headquarters moved from Dandi to Karadi", start: 'April 17, 1930', content: "Gandhi's headquarters moved"},
+    {id: 5, title: "April 23, 1930: Mass demonstrations commence in Peshawar.Mahadev Desai arrested.", start: 'April 23, 1930', content: "Mass demonstrations commence in Peshawar" },
+    {id: 6, title: "April 18, 1930: Raid on the police armoury at Chittagong", start: 'April 18, 1930', content: "Raid on the police armoury at Chittagong"},
+	{id: 7, title: "April 24, 1930: In Peshawar Royal Garhwali Rifles refuse to fire on demonstrators.", start: 'April 24, 1930', content: "Royal Garhwali Rifles refuse to fire on demonstrators"},
+    {id: 8, title: "April 25, 1930: Police and military withdrawn from Peshawar: town in the hands of the citizens until 4 May. Vithalbhai Patel resigns Presidentship of the Central Legislative Assembly.", start: 'April 25, 1930', content: "Police and military withdrwan from Peshawar"},
+    {id: 9, title: "April 27, 1930: Indian Press Act 1910 revived.", start: 'April 27, 1930', content: "Indian Press Act 1910 revived."},
+    {id: 10, title: "May 4, 1930: Gandhi drafts a letter to Irwin informing the Viceroy of the intended raids on Dharasana.", start: 'May 4, 1930', content: "Gandhi drafts a letter to Irwin"},
+	{id: 11, title: "May 5, 1930: Gandhi arrested at 0:45 am at Karadi.Taken to Yeravda Prison in a bus.", start: 'May 5, 1930', content: "Gandhi arrested at 0:45 am"},
+    {id: 12, title: "May 25, 1930: Mass raids on Wadala salt-works. Untadi camp destroyed by police.", start: 'May 25, 1930', content: "Mass raids on Wadala salt-works"},
+    {id: 13, title: "June 6, 1930: Final raid on the Dharasana salt-works. Further such activity suspended.", start: 'June 6, 1930', content: "Final raid on the Dharasana salt-works"},
+	{id: 14, title: "November 12, 1930: First Round Table Conference (RTC) started in London. Gandhi in Yeravda prison.", start: 'November 12, 1930', content: "First Round Table Conference (RTC) started in London"},
+	{id: 15, title: "Gandhi was released from Yeravda Jail at 11 p.m. Sarojini Naidu, Jawaharlal Nehru, and other Congress Working Committee members also released.First anniversary of Independence Day celebrated.", start: 'January 26, 1931', content: "Gandhi was released from Yeravda Jail at 11 p.m."},
+	{id: 17, title: "March 4, 1931: Resumed talks with Viceroy at night; agreement reached. CWC gave unanimous support to Gandhi-Irwin agreement.", start: 'March 4, 1931', content: "Resumed talks with Viceroy at night"},
+	{id: 18, title: "Gandhi reached Ahmedabad where arrangements were made to accord him a magnificient reception, as it was his first entry into the city after the historic march to Dandi, a year ago.", start: 'March 10, 1930', content: "Gandhi reached Ahmedabad"}
+]
+);
+
+  // Configuration for the Timeline
+  var options = {
+  width: '90%',
+  height: '60%',
+  clickToUse: true,
+  <!-- stack: false, -->
+  tooltip: {
+	overflowMethod: 'cap'
+	},
+  //selectable: false,
+  //cluster: true,
+  //timeAxis: {scale: 'year', step: 1},
+  //height: '30px',
+  margin: {
+    item: 20
+	}
+  };
+
+  // Create a Timeline
+  var timeline = new vis.Timeline(container, items, options);
+</script>
+</body>
+</html>
